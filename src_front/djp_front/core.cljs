@@ -1,5 +1,6 @@
 (ns djp-front.core
-  (:require  [reagent.core :as reagent :refer [atom]]))
+  (:require  [reagent.core :as reagent :refer [atom]]
+             [djp-front.fn :refer [go-home]]))
 
 (defonce state (atom {:message "Hello Reagent world"}))
 
@@ -12,7 +13,7 @@
   [:div {:id "controls"}
    [:button {:id "back", :title "Go Back", :disabled "true"} "◀"]
    [:button {:id "forward", :title "Go Forward", :disabled "true"} "▶"]
-   [:button {:id "home", :title "Go Home"} "⌂"]
+   [:button {:id "home" :on-click #(go-home) :title "Go Home"} "⌂"]
    [:button {:id "reload", :title "Reload"} "⟳"]
    [:form {:id "location-form"}
     [:div {:id "center-column"}
@@ -54,7 +55,7 @@
 (defn root-component []
   [:div
    [tool-bar]
-   [:webview {:src "http://www.github.com/", :style {:width "100%" :height "90%"}}]
+   [:webview {:src "http://lab.ucode.cc", :style {:width "100%" :height "96%"}}]
    [:div {:id "sad-webview"}
     [:div {:id "sad-webview-icon"} "☢"]
     [:h2 {:id "crashed-label"} "Aw, Snap!"]

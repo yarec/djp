@@ -34,5 +34,7 @@ goog.addDependency("../reagent/dom/server.js", ['reagent.dom.server'], ['reagent
 goog.addDependency("../cljsjs/react-dom/development/react-dom.inc.js", ['cljsjs.react.dom'], ['cljsjs.react']);
 goog.addDependency("../reagent/dom.js", ['reagent.dom'], ['reagent.impl.util', 'reagent.interop', 'reagent.ratom', 'cljs.core', 'reagent.impl.template', 'reagent.impl.batching', 'cljsjs.react.dom', 'reagent.debug']);
 goog.addDependency("../reagent/core.js", ['reagent.core'], ['reagent.impl.util', 'reagent.dom.server', 'reagent.interop', 'reagent.ratom', 'cljs.core', 'reagent.impl.template', 'reagent.impl.batching', 'reagent.impl.component', 'reagent.debug', 'reagent.dom']);
-goog.addDependency("../djp_front/core.js", ['djp_front.core'], ['reagent.core', 'cljs.core']);
+goog.addDependency("../djp_front/dom.js", ['djp_front.dom'], ['cljs.core']);
+goog.addDependency("../djp_front/fn.js", ['djp_front.fn'], ['reagent.core', 'cljs.core', 'djp_front.dom']);
+goog.addDependency("../djp_front/core.js", ['djp_front.core'], ['djp_front.fn', 'reagent.core', 'cljs.core']);
 goog.addDependency("../djp_front/init.js", ['djp_front.init'], ['djp_front.conf', 'cljs.core', 'figwheel.client', 'djp_front.core']);
