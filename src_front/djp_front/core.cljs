@@ -1,6 +1,6 @@
 (ns djp-front.core
   (:require  [reagent.core :as reagent :refer [atom]]
-             [djp-front.fn :refer [go-home]]))
+             [djp-front.fn :refer [go-home go-location open-dev]]))
 
 (defonce state (atom {:message "Hello Reagent world"}))
 
@@ -15,11 +15,12 @@
    [:button {:id "forward", :title "Go Forward", :disabled "true"} "▶"]
    [:button {:id "home" :on-click #(go-home) :title "Go Home"} "⌂"]
    [:button {:id "reload", :title "Reload"} "⟳"]
-   [:form {:id "location-form"}
-    [:div {:id "center-column"}
-     [:input {:id "location", :type "text", :default-value "http://www.github.com/"}]]
-    [:input {:type "submit", :value "Go"}]]
-   [:button {:id "zoom", :title "Change Zoom"} "🔎"]
+   ;;[:form {:id "location-form"}
+   [:div {:id "center-column"}
+    [:input {:id "location", :type "text", :default-value "http://www.github.com/"}]]
+   [:button {:title "Go" :on-click #(go-location)} "Go"]
+   ;;]
+   [:button {:id "zoom", :title "Change Zoom" :on-click #(open-dev)} "🔎"]
    [:button {:id "find", :title "Find in Page"} "🔦"]
    ]
   )
